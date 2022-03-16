@@ -1,0 +1,40 @@
+GET http://localhost:3000/posts
+
+###
+
+
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+    "title": "zharne",
+    "description":"zharnedesember@gmail.com",
+    "catergory":"user",
+    "created_by": "",
+    "date": "",
+    "comments": ""
+}
+
+###
+
+DELETE http://localhost:3000/posts
+
+
+###
+
+PATCH http://localhost:3000/posts
+
+Comment-Type: application/json
+{
+    "description": "Blog"
+}
+
+###
+
+//for users
+GET http://localhost:3000/users
+
+###
+
+POST http://localhost:3000/users
+
