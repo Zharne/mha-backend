@@ -58,6 +58,7 @@ getPost = async (req, res, next) => {
 
 //GET BACK ALL POSTS
 router.get('/', async (req,res) => {
+  console.log("Going to try to get all posts")
     try{
         const allPosts = await Post.find();
         res.json(allPosts);
