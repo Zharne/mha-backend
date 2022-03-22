@@ -60,7 +60,7 @@ getPost = async (req, res, next) => {
 router.get('/', async (req,res) => {
     try{
         const allPosts = await Post.find();
-        res.json(allPosts);
+        res.json(posts);
     } catch (err){
         res.status(500).json({ message:err });
     }
