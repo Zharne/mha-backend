@@ -61,6 +61,7 @@ router.get('/', async (req,res) => {
   console.log("Going to try to get all posts")
     try{
         const allPosts = await Post.find();
+        console.log("Found posts: ", allPosts)
         res.json(allPosts);
     } catch (err){
         res.status(500).json({ message:err });
