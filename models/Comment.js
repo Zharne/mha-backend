@@ -9,6 +9,14 @@ comment: {
     type: String,
     required: true,
 },
+created_for: {
+    type: String,
+    required: false,
+},
+created_on: {
+    type: String,
+    required: Date.now,
+}
 });
 
 //GET BACK ALL COMMENTS
