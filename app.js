@@ -2,7 +2,11 @@ const dotenv = require("dotenv");
 const express = require('express');
 const mongoose = require("mongoose");
 const app = express();
-dotenv.config();
+const cors = require("cors")
+// dotenv.config();
+var corsOptions = {
+origin: "http://localhost:8081"
+};
 
 
 mongoose.connect(process.env.DB_CONNECTION,   //DATABASE_URL
@@ -24,6 +28,7 @@ app.get('/', (req,res) => {
 
 app.use('/posts', postsRoute);
 app.use('/users', usersRoute);
+app.use(cors(corsOptions));
 // app.use('/comments', commentsRoute);
 
 
@@ -38,7 +43,7 @@ app.use('/users', usersRoute);
 //     res.send('We on comments');
 // });
 
-const port = process.env.PORT || 4000
+const port = process.env.PORT || 5001
 app.listen(port, () => {
     `Server is connected to ${port}`
 });
