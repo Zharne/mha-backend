@@ -9,7 +9,7 @@ const postsRoute = require('./routes/posts');
 const usersRoute = require('./routes/users');
 // const commentsRoute = require('./routes/comments');
 
-app.use(express.json())
+// app.use(express.json())
 app.use('/posts', postsRoute);
 app.use('/users', usersRoute);
 // app.use('/comments', commentsRoute);
@@ -19,9 +19,9 @@ app.get('/', (req,res) => {
     res.send('We are home');
 });
 
-app.get('/Posts', (req,res) => {
-    res.send('We are at Posts');
-});
+// app.get('/Posts', (req,res) => {
+//     res.send('We are at Posts');
+// });
 
 // app.get('/users', (req,res) => {
 //     res.send('This is users');
