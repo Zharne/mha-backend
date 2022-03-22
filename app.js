@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require("mongoose");
 const app = express();
 const cors = require("cors")
-dotenv.config();
+// dotenv.config();
 var corsOptions = {
 origin: "http://localhost:8081"
 };
