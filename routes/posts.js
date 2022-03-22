@@ -43,24 +43,24 @@ let posts = [
 ]
 
 getPost = async (req, res, next) => {
-    let posts;
+    let singlePost;
     try {
-      posts = await Post.findById(req.params.userId);
-      if (posts == null) {
+      singlePost = await Post.findById(req.params.userId);
+      if (singlePost == null) {
         return res.status(404).json({ message: "cannot find post" });
       }
     } catch (err) {
       return res.status(500).json({ message: err.message });
     }
-    res.post = posts;
+    res.post = singlePost;
     next();
   };
 
 //GET BACK ALL POSTS
 router.get('/', async (req,res) => {
     try{
-        const posts = await Post.find();
-        res.json(posts);
+        const allPosts = await Post.find();
+        res.json(allPosts);
     } catch (err){
         res.status(500).json({ message:err });
     }
