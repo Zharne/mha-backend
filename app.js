@@ -4,9 +4,6 @@ const app = express();
 const cors = require("cors")
 const mongoose = require("mongoose");
 // dotenv.config();
-var corsOptions = {
-origin: "http://localhost:8081"
-};
 
 
 mongoose.connect(process.env.DB_CONNECTION,   //DATABASE_URL
@@ -17,7 +14,9 @@ mongoose.connect(process.env.DB_CONNECTION,   //DATABASE_URL
 //import routes
 const postsRoute = require('./routes/posts');
 const usersRoute = require('./routes/users');
+const contactRoute = require('./routes/contact');
 // const commentsRoute = require('./routes/comments');
+app.use(cors());
 
 app.use(express.json())
 
@@ -28,7 +27,7 @@ app.get('/', (req,res) => {
 
 app.use('/posts', postsRoute);
 app.use('/users', usersRoute);
-app.use(cors(corsOptions));
+app.use('./contact', contactRoute);
 // app.use('/comments', commentsRoute);
 
 
