@@ -1,9 +1,9 @@
-GET http://localhost:5001/posts
+GET http://localhost:2020/posts
 Content-Type: application/json
 ###
 
 
-POST http://localhost:5001/posts
+POST http://localhost:2020/posts
 Content-Type: application/json
 
 {
@@ -17,12 +17,12 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:5001/posts
+DELETE http://localhost:2020/posts
 
 
 ###
 
-PATCH http://localhost:5001/posts
+PATCH http://localhost:2020/posts
 Comment-Type: application/json
 {
     "description": "Blog"
@@ -31,11 +31,11 @@ Comment-Type: application/json
 ###
 
 //for users
-GET http://localhost:5001/users
+GET http://localhost:2020/users
 
 ###
 
-POST http://localhost:5001/users/signup
+POST http://localhost:2020/users/signup
 Content-Type: application/json
 
 {
@@ -47,7 +47,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:5001/users/login
+POST http://localhost:2020/users/login
 Content-Type: application/json
 
 {
@@ -57,7 +57,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:5001/users/comments
+POST http://localhost:2020/users/comments
 Comment-Type: application/json
 {
     "comment": ""
@@ -65,11 +65,11 @@ Comment-Type: application/json
 
 ###
 
-DELETE http://localhost:5001/users
+DELETE http://localhost:2020/users
 
 ###
 
-PATCH http://localhost:5001/users
+PATCH http://localhost:2020/users
 Comment-Type: application/json
 {
     "description": "Blog"

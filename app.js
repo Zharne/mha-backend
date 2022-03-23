@@ -1,9 +1,9 @@
-// const dotenv = require("dotenv");
+const dotenv = require("dotenv");
 const express = require('express');
 const app = express();
 const cors = require("cors")
 const mongoose = require("mongoose");
-// dotenv.config();
+dotenv.config();
 
 
 mongoose.connect(process.env.DB_CONNECTION,   //DATABASE_URL
@@ -42,7 +42,7 @@ app.use('./contact', contactRoute);
 //     res.send('We on comments');
 // });
 
-const port = process.env.PORT || 5001
+const port = process.env.PORT || 2020
 app.listen(port, () => {
     `Server is connected to ${port}`
 });
