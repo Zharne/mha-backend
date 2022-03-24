@@ -146,14 +146,12 @@ router.post("/login", async (req, res) => {
     // const { password, ...others } = user._doc;
     // res.status(200).json(others);
     User.findOne({ name: req.body.name }, (err, person) => {
-      if (err) {
-        res.status(500).send({ message: err });
-        return;
-      }
+      if(err) return handleError(err);
       if (!person) {
-        return res.status(404).send({ message: "User Not found." });
+       return res.status(500).send({ message: "user not found" });
       }
-      var passwordIsValid = bcrypt.compareSync(
+    
+      let passwordIsValid = bcrypt.compareSync(
         req.body.password,
         person.password
       );
@@ -163,7 +161,7 @@ router.post("/login", async (req, res) => {
           message: "Invalid Password!",
         });
       }
-      let token = jwt.sign({ userId: person.userId, comments: person.comments }, process.env.SECRET, {
+      let token = jwt.sign({ userId: person.userId}, process.env.SECRET, {
         expiresIn: 86400, // 24 hours
       });
       res.status(200).send({
