@@ -118,9 +118,9 @@ async function checkDuplicateEmail(req, res, next) {
 router.post("/register", [checkDuplicateName, checkDuplicateEmail], async (req, res) => {
   try {
     const salt = await bcrypt.genSalt();
-    const hashedPass = await bcrypt.hash(req.body.password, salt);
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
     const newUser = new User({
-      username: req.body.username,
+      name: req.body.name,
       email: req.body.email,
       password: hashedPassword,
     });
@@ -145,7 +145,7 @@ router.post("/login", async (req, res) => {
 
     // const { password, ...others } = user._doc;
     // res.status(200).json(others);
-    User.findOne({ name: req.body.username }, (err, person) => {
+    User.findOne({ name: req.body.name }, (err, person) => {
       if (err) {
         res.status(500).send({ message: err });
         return;
@@ -163,12 +163,12 @@ router.post("/login", async (req, res) => {
           message: "Invalid Password!",
         });
       }
-      let token = jwt.sign({ userId: person.userId, comments: person.comments }, process.env.ACCESSTOKEN, {
+      let token = jwt.sign({ userId: person.userId, comments: person.comments }, process.env.SECRET, {
         expiresIn: 86400, // 24 hours
       });
       res.status(200).send({
         userId: person.userId,
-        username: person.username,
+        name: person.name,
         email: person.email,
         accessToken: token,
       });

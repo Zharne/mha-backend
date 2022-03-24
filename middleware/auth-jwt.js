@@ -6,7 +6,7 @@ verifyToken = (req, res, next) => {
     let authHeader = req.headers["authorization"]
     const token = authHeader && authHeader.split(" ")[1]
     if(!token) return res.status(500).send({message: "User not logged in."})
-    jwt.verify(token, process.env.secret, (err, user) => {
+    jwt.verify(token, process.env.SECRET, (err, user) => {
         if(err) return res.status(401).send({message: "Unauthorized"})
         req.userId = user._id
         next()

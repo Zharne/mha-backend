@@ -23,7 +23,7 @@ let posts = [
     "title": "Stress",
     "description": "Stress is a normal response to situational pressures or demands, especially if they are perceived as threatening or dangerous. Stress is the result of brain chemicals, called hormones, surging through the body.",
     "catergory": "",
-    "img": "https://imgkub.com/images/2022/03/22/people-g795015266_1920.jpg"
+    "img": "https://imgkub.com/images/2022/03/22/sadness-ge594f7b32_1920.jpg"
     },
 
     { 

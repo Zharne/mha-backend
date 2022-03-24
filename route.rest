@@ -7,12 +7,12 @@ POST http://localhost:2020/posts
 Content-Type: application/json
 
 {
-    "title": "zharne",
-    "description":"zharnedesember@gmail.com",
-    "catergory":"user",
-    "created_by": "",
-    "date": "",
-    "comments": "okay, and what?"
+    "title": "Depression",
+    "description": "Depression (major depressive disorder) is a common and serious medical illness that negatively affects how you feel, the way you think and how you act.",
+    "catergory": "Depression",
+    "img": "https://imgkub.com/images/2022/03/22/sadness-ge594f7b32_1920.jpg"
+    
+   
 }
 
 ###
@@ -35,14 +35,13 @@ GET http://localhost:2020/users
 
 ###
 
-POST http://localhost:2020/users/signup
+POST http://localhost:2020/users/register
 Content-Type: application/json
 
 {
     "name": "zharne",
     "password": "0123",
-    "email": "zharnedesember@gmail.com",
-
+    "email": "zharnedesember@gmail.com"
 }
 
 ###
@@ -51,8 +50,8 @@ POST http://localhost:2020/users/login
 Content-Type: application/json
 
 {
-    "name": "",
-    "password": ""
+    "name": "zharne",
+    "password": "0123"
 }
 
 ###
