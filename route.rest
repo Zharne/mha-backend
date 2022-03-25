@@ -1,9 +1,9 @@
-GET http://localhost:2020/posts
+GET 
 Content-Type: application/json
 ###
 
 
-POST http://localhost:2020/posts
+POST https://mental-health-association.herokuapp.com/posts
 Content-Type: application/json
 
 {
@@ -11,7 +11,6 @@ Content-Type: application/json
     "description": "Depression (major depressive disorder) is a common and serious medical illness that negatively affects how you feel, the way you think and how you act.",
     "catergory": "Depression",
     "img": "https://imgkub.com/images/2022/03/22/sadness-ge594f7b32_1920.jpg"
-    
    
 }
 
@@ -46,7 +45,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:2020/users/login
+POST https://mental-health-association.herokuapp.com/users/login
 Content-Type: application/json
 
 {
