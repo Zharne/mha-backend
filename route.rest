@@ -7,9 +7,9 @@ POST https://mental-health-association.herokuapp.com/posts
 Content-Type: application/json
 
 {
-    "title": "Depression",
-    "description": "Depression (major depressive disorder) is a common and serious medical illness that negatively affects how you feel, the way you think and how you act.",
-    "catergory": "Depression",
+    "title": "Stress",
+    "description": "Stress is a normal response to situational pressures or demands, especially if they are perceived as threatening or dangerous. Stress is the result of brain chemicals, called hormones, surging through the body.",
+    "catergory": "",
     "img": "https://imgkub.com/images/2022/03/22/sadness-ge594f7b32_1920.jpg"
    
 }
