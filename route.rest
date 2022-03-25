@@ -5,15 +5,15 @@ Content-Type: application/json
 
 POST https://mental-health-association.herokuapp.com/posts
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NDgyMDk4MDYsImV4cCI6MTY0ODI5NjIwNn0.ApvCnn4hazVeCexo20hVuO6NDhcIFYfJSIed6AN7W7Q
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NDgyMTA5MDEsImV4cCI6MTY0ODI5NzMwMX0.S8vkSNvZ1N11cJXxfSTfWT2guDMr5npavaZedLurWCg
 
-{
-    "title": "Stress",
-    "description": "Stress is a normal response to situational pressures or demands, especially if they are perceived as threatening or dangerous. Stress is the result of brain chemicals, called hormones, surging through the body.",
-    "catergory": "Stress",
-    "img": "https://imgkub.com/images/2022/03/22/sadness-ge594f7b32_1920.jpg"
-   
-}
+   { 
+    "title": "Mental Health",
+    "description": "“Mental health is a state of well-being in which an individual realizes his or her own abilities, can cope with the normal stresses of life, can work productively, and is able to make a contribution to his or her community.”",
+    "catergory": "",
+    "img": "https://imgkub.com/images/2022/03/22/mental-health-gf3b036b3e_1920.jpg"
+     
+    }
 
 ###
 

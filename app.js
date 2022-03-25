@@ -4,6 +4,9 @@ const app = express();
 const cors = require("cors")
 const mongoose = require("mongoose");
 dotenv.config();
+// corsOptions = {
+//     origin: "http://localhost:8080"
+// };
 
 
 mongoose.connect(process.env.DB_CONNECTION,   //DATABASE_URL
@@ -17,6 +20,8 @@ const usersRoute = require('./routes/users');
 const contactRoute = require('./routes/contact');
 // const commentsRoute = require('./routes/comments');
 app.use(cors());
+
+// app.use(cors(corsOptions));
 
 app.use(express.json())
 
