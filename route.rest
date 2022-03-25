@@ -59,7 +59,7 @@ Content-Type: application/json
 POST http://localhost:2020/users/comments
 Comment-Type: application/json
 {
-    "comment": ""
+    "comment": "This is a comment"
 }
 
 ###
