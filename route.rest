@@ -5,11 +5,12 @@ Content-Type: application/json
 
 POST https://mental-health-association.herokuapp.com/posts
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NDgyMDk4MDYsImV4cCI6MTY0ODI5NjIwNn0.ApvCnn4hazVeCexo20hVuO6NDhcIFYfJSIed6AN7W7Q
 
 {
     "title": "Stress",
     "description": "Stress is a normal response to situational pressures or demands, especially if they are perceived as threatening or dangerous. Stress is the result of brain chemicals, called hormones, surging through the body.",
-    "catergory": "",
+    "catergory": "Stress",
     "img": "https://imgkub.com/images/2022/03/22/sadness-ge594f7b32_1920.jpg"
    
 }
