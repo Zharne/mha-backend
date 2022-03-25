@@ -145,8 +145,12 @@ router.post("/login", async (req, res) => {
 
     // const { password, ...others } = user._doc;
     // res.status(200).json(others);
+
+
+    console.log(req.body.name, req.body.password)
     User.findOne({ name: req.body.name }, (err, person) => {
       if(err) return handleError(err);
+      console.log(person)
       if (!person) {
        return res.status(500).send({ message: "user not found" });
       }
