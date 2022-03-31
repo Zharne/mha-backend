@@ -17,7 +17,7 @@ mongoose.connect(process.env.DB_CONNECTION,   //DATABASE_URL
 //import routes
 const postsRoute = require('./routes/posts');
 const usersRoute = require('./routes/users');
-const contactRoute = require('./routes/contact');
+const contactRoute = require('./routes/contactRoute');
 // const commentsRoute = require('./routes/comments');
 app.use(cors());
 
