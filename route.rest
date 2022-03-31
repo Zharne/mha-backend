@@ -56,10 +56,12 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:2020/users/comments
+POST https://mental-health-association.herokuapp.com/contact
 Comment-Type: application/json
 {
-    "comment": "This is a comment"
+    "name": "This is a comment",
+    "email":"zharnedesember@gmail.com",
+    "message":"message"
 }
 
 ###

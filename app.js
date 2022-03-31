@@ -32,7 +32,7 @@ app.get('/', (req,res) => {
 
 app.use('/posts', postsRoute);
 app.use('/users', usersRoute);
-app.use('./contact', contactRoute);
+app.use('/contact', contactRoute);
 // app.use('/comments', commentsRoute);
 
 

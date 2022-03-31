@@ -6,9 +6,9 @@ const nodemailer = require('nodemailer');
 //     res.send('This is the contact Page')
 // })
 
-router.post('/', async (req,res) => {
+router.post('/contact', async (req,res) => {
     const {name,email,message} = req.body
-    const transporter = nodemailer.createTransport({
+    let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
           user: process.env.EMAIL,
@@ -16,9 +16,9 @@ router.post('/', async (req,res) => {
         }
       });
       
-      let mailOptions = {
-        from: 'zharnedesember@gmail.com',
-        to: 'zharnedesember@gmail.com',
+      const mailOptions = {
+        from: email ,
+        to: 'zharnedesember@gmail.com', email,
         subject: `${name} wants to contact you`,
         text: `${message} contact them at ${email}`
       };
@@ -27,6 +27,7 @@ router.post('/', async (req,res) => {
         if (error) {
           res.status(400).send({ message: "Email could not be sent." });
         } else {
+          console.log(error)
           console.log('Email sent: ' + info.response);
         } 
         try {
