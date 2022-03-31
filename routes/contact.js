@@ -1,15 +1,19 @@
 const express = require('express')
 const router = express.Router()
 const nodemailer = require('nodemailer');
+require("dotenv").config();
 
 // router.get('/', (req,res) => {
 //     res.send('This is the contact Page')
 // })
 
-router.post('/contact', async (req,res) => {
+router.post('/', (req,res) => {
     const {name,email,message} = req.body
     let transporter = nodemailer.createTransport({
         service: 'gmail',
+        host:"smtp.gmail.com",
+        port: 465,
+        secure: true,
         auth: {
           user: process.env.EMAIL,
           pass: process.env.PASS
