@@ -3,9 +3,9 @@ const router = express.Router()
 const nodemailer = require('nodemailer');
 require("dotenv").config();
 
-// router.get('/', (req,res) => {
-//     res.send('This is the contact Page')
-// })
+router.get('/', (req,res) => {
+  res.send('This is the contact Page')
+ })
 
 router.post('/', (req,res) => {
     const {name,email,message} = req.body
