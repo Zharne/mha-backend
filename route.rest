@@ -39,19 +39,19 @@ POST http://localhost:2020/users/register
 Content-Type: application/json
 
 {
-    "name": "zharne",
-    "password": "0123",
-    "email": "zharnedesember@gmail.com"
+    "username": "tony1",
+    "password": "1234abcd",
+    "email": "tony@gmail.com"
 }
 
 ###
 
-POST https://mental-health-association.herokuapp.com/users/login
+POST https://mental-health-association.herokuapp.com/users/register
 Content-Type: application/json
 
 {
-    "name": "zharne",
-    "password": "0123"
+    "name": "tony",
+    "password": "1234abcd"
 }
 
 ###

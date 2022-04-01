@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const User = require("../models/User");
+const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const verifyToken = require("../middleware/auth-jwt");
@@ -16,20 +16,20 @@ router.get('/', async (req,res) => {
   
 });
 //ADD A USER
-router.post('/', async (req,res) => {
-  const user = new User({
-      name: req.body.name,
-      password: req.body.password,
-      email: req.body.email
-      // created_by: req.userId,
-  });
-  try{
-  const savedUser = await user.save();
-  res.status(201).json(savedUser);
-  }catch(err) {
-      res.status(400).json({ message: err });
-  }
-}); 
+// router.post('/', async (req,res) => {
+//   const user = new User({
+//       name: req.body.name,
+//       password: req.body.password,
+//       email: req.body.email
+//       // created_by: req.userId,
+//   });
+//   try{
+//   const savedUser = await user.save();
+//   res.status(201).json(savedUser);
+//   }catch(err) {
+//       res.status(400).json({ message: err });
+//   }
+// }); 
 
 //SPECIFIC USER
 router.get('/:userId', async (req,res) => {
@@ -89,46 +89,35 @@ async function getUser(req, res, next) {
   res.user = user;
   next();
 }
-async function checkDuplicateName(req, res, next) {
-  let user;
-  try {
-    user = await User.findOne({ name: req.body.name });
-    if (user) {
-      return res.status(404).send({ message: "User already exist." });
-    }
-  } catch (err) {
-    return res.status(400).json({ message: err.message });
-  }
-  next();
-}
-async function checkDuplicateEmail(req, res, next) {
-  let email;
-  try {
-    email = await User.findOne({ email: req.body.email });
-    if (email) {
-      return res.status(404).send({ message: "Email already exist." });
-    }
-  } catch (err) {
-    return res.status(400).json({ message: err.message });
-  }
-  next();
-}
+// async function checkDuplicateName(req, res, next) {
+//   let user;
+//   try {
+//     user = await User.findOne({ name: req.body.name });
+//     if (user) {
+//       return res.status(404).send({ message: "User already exist." });
+//     }
+//   } catch (err) {
+//     return res.status(400).json({ message: err.message });
+//   }
+//   next();
+// }
+// 
 
 //REGISTER
-router.post("/register", [checkDuplicateName, checkDuplicateEmail], async (req, res) => {
+router.post("/register", DuplicatedUsernameorEmail, async (req, res) => {
   try {
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
-    const newUser = new User({
-      name: req.body.name,
+    const users = new User({
+      username: req.body.username,
       email: req.body.email,
       password: hashedPassword,
     });
 
-    const user = await newUser.save();
+    const newUser = await users.save();
     res.status(200).json(newUser);
-    console.log(salt);
-    console.log(hashedPassword);
+    // console.log(salt);
+    // console.log(hashedPassword);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -170,7 +159,7 @@ router.post("/login", async (req, res) => {
       });
       res.status(200).send({
         userId: person.userId,
-        name: person.name,
+        name: person.username,
         email: person.email,
         accessToken: token,
       });
@@ -179,6 +168,21 @@ router.post("/login", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+async function DuplicatedUsernameorEmail(req, res, next) {
+  let user;
+
+  try {
+    username = await User.findOne({ username: req.body.username });
+    email= await User.findOne({ email: req.body.email});
+    if(username || email) {
+      return res.status(404).send ({ message: "username already says"});
+    } 
+  }catch (err) {
+      return res.status(500).json({ message: err.message });
+    }
+    next();
+  }
 
 
 
